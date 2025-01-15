@@ -19,8 +19,20 @@ public class TodoItemService {
     public List<TodoItem> getTodoItem() {
         return todoItemRepository.findAll();
     }
+
     public void createTodoItem(String description){
        todoItemRepository.save(new TodoItem(description));
+    }
+
+    public void updateTodoItem(Integer id, String description) {
+        TodoItem item = todoItemRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Item not found with id: " + id));
+        item.setDescription(description);
+        todoItemRepository.save(item);
+    }
+
+    public void deleteTodoItem(Integer id) {
+        todoItemRepository.delete(new TodoItem(id));
     }
 
 }
