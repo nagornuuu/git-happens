@@ -1,15 +1,9 @@
 package com.githappens.todoApp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "todo_item")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class TodoItem {
 
     @Id
@@ -19,12 +13,40 @@ public class TodoItem {
     private String description;
     private boolean completed;
 
-
     public TodoItem() {
     }
 
-    public TodoItem(String description){
-        this.description=description;
-        this.completed=false;
+    public TodoItem(Integer id) {
+        this.id = id;
     }
+
+    public TodoItem(String description){
+        this.description = description;
+        this.completed = false;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
 }
