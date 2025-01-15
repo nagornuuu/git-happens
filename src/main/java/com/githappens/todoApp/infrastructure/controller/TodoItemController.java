@@ -2,9 +2,7 @@ package com.githappens.todoApp.infrastructure.controller;
 
 import com.githappens.todoApp.application.TodoItemService;
 import com.githappens.todoApp.model.TodoItem;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,21 @@ public class TodoItemController {
     @GetMapping
     public List<TodoItem> getItem() {
         return todoItemService.getTodoItem();
+    }
+
+    @PostMapping
+    public void createItem(@RequestBody String description) {
+        todoItemService.createTodoItem(description);
+    }
+
+    @PutMapping("/{id}")
+    public void updateItem(@PathVariable Integer id, @RequestParam String description) {
+        todoItemService.updateTodoItem(id, description);
+    }
+
+    @DeleteMapping
+    public void deleteItem(Integer id) {
+        todoItemService.deleteTodoItem(id);
     }
 
 }
