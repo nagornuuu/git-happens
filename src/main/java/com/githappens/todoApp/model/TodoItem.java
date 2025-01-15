@@ -1,16 +1,21 @@
 package com.githappens.todoApp.model;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "todo_item")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class TodoItem {
 
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String description;
+
     private boolean completed;
 
 }
