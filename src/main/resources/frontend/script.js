@@ -1,4 +1,4 @@
-let tasks = []; // Mock task list for now (replace with real API later)
+let tasks = []; // Mock task list
 
 function fetchTasks() {
     const taskList = document.getElementById("taskList");
@@ -32,27 +32,27 @@ function addTask() {
     const taskInput = document.getElementById("taskInput");
     const task = { description: taskInput.value, completed: false };
     if (task.description.trim() !== "") {
-        tasks.push(task); // Add the task to the mock list
-        taskInput.value = ""; // Clear the input field
-        fetchTasks(); // Update the UI
+        tasks.push(task);       // Add the task to the mock list
+        taskInput.value = "";   // Clear the input field
+        fetchTasks();           // Update the UI
     } else {
         alert("Please enter a task!");
     }
 }
 
 function deleteTask(index) {
-    tasks.splice(index, 1); // Remove the task from the mock list
-    fetchTasks(); // Update the UI
+    tasks.splice(index, 1);         // Remove the task from the mock list
+    fetchTasks();                              // Update the UI
 }
 
 function editTask(index) {
     const task = tasks[index];
     const newDescription = prompt("Edit task:", task.description);
     if (newDescription !== null && newDescription.trim() !== "") {
-        tasks[index].description = newDescription; // Update the task description
-        fetchTasks(); // Refresh the task list
+        tasks[index].description = newDescription;  // Update the task description
+        fetchTasks();                               // Refresh the task list
     } else if (newDescription === "") {
-        alert("Task description cannot be empty!");
+        alert("Task description cannot be empty");
     }
 }
 
