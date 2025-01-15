@@ -9,8 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TodoItem {
 
-    private Long id;
+    private Integer id;
     private String description;
     private boolean completed;
 
+
+    public TodoItem(String description){
+        this.description=description;
+        this.completed=false;
+    }
 }
