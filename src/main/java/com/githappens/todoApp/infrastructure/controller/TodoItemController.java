@@ -26,4 +26,14 @@ public class TodoItemController {
         todoItemService.createTodoItem(description);
     }
 
+    @PutMapping("/{id}")
+    public void updateItem(@PathVariable Integer id, @RequestParam String description) {
+        todoItemService.updateTodoItem(id, description);
+    }
+
+    @DeleteMapping
+    public void deleteItem(Integer id) {
+        todoItemService.deleteTodoItem(id);
+    }
+
 }
