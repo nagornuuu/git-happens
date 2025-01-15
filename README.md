@@ -1,5 +1,5 @@
 # git-happens
 # team
 1. Juan Burillo
-2. Sergio Solabre Ortega
-3. Andrii Nahornyi
+2. Andrii Nahornyi
+3. Sergio Solabre Ortega
